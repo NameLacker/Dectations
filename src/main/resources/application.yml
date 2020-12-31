@@ -1,0 +1,5 @@
+app:
+  db:
+    host: ${DB_HOST:localhost}
+    user: ${DB_USER:root}
+    password: ${DB_PASSWORD:password}
