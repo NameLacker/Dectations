@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ktwlrj.dectation.modules.mapper.StudentMapper">
+    
+    <insert id="save">
+        INSERT IGNORE INTO student (id,name,score,age,gender) VALUES (#{id},#{name},#{score},#{age},#{gender})
+    </insert>
+
+    <select id="findByKey" resultType="com.ktwlrj.dectation.modules.entity.Student">
+        SELECT * FROM student WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultType="com.ktwlrj.dectation.modules.entity.Student">
+        SELECT * FROM student
+    </select>
+</mapper>

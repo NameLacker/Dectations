@@ -1,16 +1,19 @@
 package com.ktwlrj.dectation;
 
 import com.ktwlrj.dectation.core.CoreCommonUtils;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@MapperScan({"com.ktwlrj.dectation.modules.mapper"})
+@SpringBootApplication
+@EnableTransactionManagement
 public class Application {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
         ConfigurableApplicationContext Application = SpringApplication.run(Application.class, args);
-        CoreCommonUtils.printSysInfo(Application);
+        CoreCommonUtils.printSysInfo(Application);  // 打印系统相关配置信息
     }
 }

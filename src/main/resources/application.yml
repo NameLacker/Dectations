@@ -1,5 +1,27 @@
-app:
-  db:
-    host: ${DB_HOST:localhost}
-    user: ${DB_USER:root}
-    password: ${DB_PASSWORD:password}
+server:
+  port: 8080
+
+spring:
+  #数据源配置
+  datasource:
+    #数据库的 JDBC URL
+    url: jdbc:mysql://localhost:3306/yogurt
+    #数据库的登录用户名
+    username: root
+    #数据库的登录密码
+    password: password
+    #JDBC 驱动的全限定类名。默认根据 URL 自动检测
+    driver-class-name: com.mysql.jdbc.Driver
+    dbcp2:
+      #从连接池中借用连接时是否要进行测试
+      test-on-borrow: true
+      #连接池在等待返回连接时，最长等待多少毫秒再抛出异常
+      max-wait-millis: 1000
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  #实体类所在包
+  type-aliases-package: com.ktwlrj.dectation.modules.entity
+  #mapper.xml所在位置
+  mapper-locations: classpath*:com/ktwlrj/dectation/modules/mapper/xml/*.xml
+
