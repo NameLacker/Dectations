@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ktwlrj.dectation.modules.mapper.UserMapper">
+
+    <insert id="save">
+        INSERT IGNORE INTO user (id,email,password,name,createAt) VALUES (#{id},#{email},#{password},#{name},#{createAt})
+    </insert>
+
+    <select id="getUserByName" resultType="com.ktwlrj.dectation.modules.entity.User">
+        SELECT * FROM user WHERE name = #{name}
+    </select>
+
+    <select id="getAllUser" resultType="com.ktwlrj.dectation.modules.entity.User">
+        SELECT * FROM user
+    </select>
+</mapper>

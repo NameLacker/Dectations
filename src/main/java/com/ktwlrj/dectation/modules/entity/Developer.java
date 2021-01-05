@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 
 @Getter
 @Setter
 @ToString
-public class Developer {
+public class Developer implements Serializable {
     private int id = 1;
     private String name;
     private int age;
