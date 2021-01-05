@@ -1,0 +1,16 @@
+# mysql
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: password
+  database: yogurt
+
+# 应用本地
+app:
+  server-port: 8080
+  context-path: /test
+  log-root-level: debug
+  log-package-level: debug
+  swagger-enable: true # 是否打开swagger
+  create-out-conf: false  # 启动是否创建外置配置文件

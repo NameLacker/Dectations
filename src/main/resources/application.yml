@@ -1,16 +1,19 @@
-server:
-  port: 8080
-
-
 spring:
+  application:
+    name: "@name@"
+    version: "@version@"
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
   #数据源配置
   datasource:
     #数据库的 JDBC URL
-    url: jdbc:mysql://localhost:3306/yogurt
+    url: jdbc:mysql://${mysql.host}:${mysql.port}/${mysql.database}
     #数据库的登录用户名
-    username: root
+    username: ${mysql.username}
     #数据库的登录密码
-    password: password
+    password: ${mysql.password}
     #JDBC 驱动的全限定类名。默认根据 URL 自动检测
     driver-class-name: com.mysql.cj.jdbc.Driver
     dbcp2:
@@ -43,6 +46,9 @@ spring:
     # 注意配置至少都是yyyy-MM-dd，不能只为yyyy-MM,否则只能使用Date类型加@JsonFormat处理
     date-format: yyyy-MM-dd HH:mm:ss
 
+server:
+  port: ${app.server-port}
+
 mybatis:
   #实体类所在包
   type-aliases-package: com.ktwlrj.dectation.modules.entity
@@ -51,11 +57,20 @@ mybatis:
 
 logging:
   level:
-    root: debug
-    com.ktwlrj: debug
+    root: ${app.log-root-level}
+    com.ktwlrj: ${app.log-package-level}
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss
   file:
-    name: ./logs/application.log
+    name: ./logs/${spring.application.name}.log
     max-history: 30
 debug: true
+
+# swagger配置
+springfox:
+  documentation:
+    enabled: ${app.swagger-enable}
+  scan-packages:
+    - com.ktwlrj.dectation
+  protocols:
+    - http
