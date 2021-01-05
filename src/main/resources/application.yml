@@ -49,5 +49,13 @@ mybatis:
   #mapper.xml所在位置
   mapper-locations: classpath*:com/ktwlrj/dectation/modules/mapper/xml/*.xml
 
-
-
+logging:
+  level:
+    root: debug
+    com.ktwlrj: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss
+  file:
+    name: ./logs/application.log
+    max-history: 30
+debug: true
