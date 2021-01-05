@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 @MapperScan({"com.ktwlrj.dectation.modules.mapper"})
 @SpringBootApplication
 @EnableTransactionManagement

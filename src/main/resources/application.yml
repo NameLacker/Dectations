@@ -1,6 +1,7 @@
 server:
   port: 8080
 
+
 spring:
   #数据源配置
   datasource:
@@ -11,17 +12,42 @@ spring:
     #数据库的登录密码
     password: password
     #JDBC 驱动的全限定类名。默认根据 URL 自动检测
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     dbcp2:
       #从连接池中借用连接时是否要进行测试
       test-on-borrow: true
       #连接池在等待返回连接时，最长等待多少毫秒再抛出异常
       max-wait-millis: 1000
+      #初始化连接大小
+      initial-size: 10
+      #最小空闲连接数
+      min-idle: 5
+      # 可关闭的空闲连接间隔时间
+      time-between-eviction-runs-millis: 60000
+      # 配置连接在池中的最小生存时间
+      min-evictable-idle-time-millis: 300000
+      validation-query: select '1' from dual
+      test-while-idle: true
+      test-on-return: false
+      #关闭长时间不使用的连接
+      remove-abandoned-timeout: 1800
+      log-abandoned: true
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: false
+      max-open-prepared-statements: 20
     type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    time-zone: Asia/Shanghai
+    # 注意LocalDateTime与LocalDate不能混用，
+    # 即如果默认配置只有日期,不加@JsonFormat处理的属性只能是LocalDate,反之只能为LocalDateTime
+    # 注意配置至少都是yyyy-MM-dd，不能只为yyyy-MM,否则只能使用Date类型加@JsonFormat处理
+    date-format: yyyy-MM-dd HH:mm:ss
 
 mybatis:
   #实体类所在包
   type-aliases-package: com.ktwlrj.dectation.modules.entity
   #mapper.xml所在位置
   mapper-locations: classpath*:com/ktwlrj/dectation/modules/mapper/xml/*.xml
+
+
 

@@ -1,15 +1,18 @@
 package com.ktwlrj.dectation.modules.entity;
 
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
+import lombok.experimental.Accessors;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Accessors
 public class Student {
 
+    @ApiModelProperty(name = "id", value = "配置id")
     private Integer id;
 
     private String name;
