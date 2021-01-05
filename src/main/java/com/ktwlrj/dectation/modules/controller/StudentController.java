@@ -23,8 +23,8 @@ public class StudentController {
 
     private final StudentService service;
 
-    @ApiOperation(value = "getStudent", notes = "Student")
-    @GetMapping("/getstudent")
+    @ApiOperation(value = "getAllStudent", notes = "Student")
+    @GetMapping("/getallstudent")
     public Result<List<Student>> getStudent(){
         return ok(service.getAll());
     }

@@ -2,7 +2,6 @@ package com.ktwlrj.dectation.modules.service.impl;
 
 import com.ktwlrj.dectation.core.constant.Status;
 import com.ktwlrj.dectation.core.exception.ResponseException;
-import com.ktwlrj.dectation.core.tools.RandTools;
 import com.ktwlrj.dectation.modules.entity.User;
 import com.ktwlrj.dectation.modules.mapper.UserMapper;
 import com.ktwlrj.dectation.modules.service.UserService;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Stack;
 
 
 @Slf4j
@@ -22,34 +20,11 @@ import java.util.Stack;
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
-    private int n = 100;
 
 
     @Override
     public void saveUser(User user) throws RuntimeException {
-        while (n < 1000) {
-            n++;
-            RandTools runoobTest = new RandTools();
-
-            String email1 = runoobTest.getRandomNumbersAndString(10); // 随机字符串
-            List<String> emailname = new Stack<>();
-            emailname.add("@qq.com");
-            emailname.add("@fox.com");
-            emailname.add("@163.com");
-            int index = runoobTest.getRandomRange(3, 0); // 随机整数
-            String email = email1 + emailname.get(index);
-
-            String password = runoobTest.getRandomNumbersAndString(10);
-            String name = runoobTest.getRandomNumbersAndString(5);
-            long createAt = runoobTest.getRandomRange(100000000, 10000000); // 随机整数
-
-            user.setId(n);
-            user.setEmail(email);
-            user.setName(name);
-            user.setPassword(password);
-            user.setCreateAt(createAt);
-            userMapper.save(user);
-        }
+        userMapper.save(user);
     }
 
     @Override

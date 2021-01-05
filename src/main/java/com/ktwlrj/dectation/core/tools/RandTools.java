@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+
+/**
+ * 生成随机字符串及随机数
+ */
 public class RandTools {
     /**
      * 获取范围内int值

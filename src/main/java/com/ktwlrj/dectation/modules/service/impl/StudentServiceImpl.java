@@ -20,33 +20,10 @@ import java.util.Objects;
 public class StudentServiceImpl implements StudentService {
 
     private final StudentMapper studentMapper;
-    private int n = 100;
-    private String gender;
 
     @Override
     public void add(Student student) {
-        while (n < 1000) {
-            n++;
-            RandTools runoobTest = new RandTools();
-            String name = runoobTest.getRandomNumbersAndString(5);
-            int score = runoobTest.getRandomRange(100, 0); // 随机整数
-            int age = runoobTest.getRandomRange(100, 0); // 随机整数
-
-            int index = runoobTest.getRandomRange(2, 0); // 随机整数
-            if (index == 0) {
-                gender = "male";
-            }
-            else {
-                gender = "lady";
-            }
-
-            student.setId(n);
-            student.setName(name);
-            student.setScore(score);
-            student.setAge(age);
-            student.setGender(gender);
-            studentMapper.save(student);
-        }
+        studentMapper.save(student);
     }
 
     @Override

@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
-@MapperScan({"com.ktwlrj.dectation.modules.mapper"})
+@MapperScan({"com.ktwlrj.dectation.modules.mapper"})  // 扫描映射Mapper接口类
 @SpringBootApplication
 @EnableTransactionManagement
 public class Application {

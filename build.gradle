@@ -12,7 +12,6 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
-    //compile.exclude module: 'spring-boot-starter-logging'//排除对默认logging的依赖
 }
 
 repositories {
