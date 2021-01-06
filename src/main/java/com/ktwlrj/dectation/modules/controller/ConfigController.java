@@ -27,7 +27,7 @@ public class ConfigController {
 
     @ApiOperation(value = "getPerson", notes = "Human")
     @GetMapping("/getperson/{name}")
-    public Result<User> getPerson(@PathVariable String name) {
+    public Result<User> getperson(@PathVariable String name) {
         return ok(service.getUser(name));
     }
 }

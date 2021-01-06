@@ -13,4 +13,23 @@
     <select id="getAllUser" resultType="com.ktwlrj.dectation.modules.entity.User">
         SELECT * FROM user
     </select>
+
+    <select id="getCount" resultType="BigInteger">
+        SELECT count(*) FROM user
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE user
+        SET
+            email = #{email},
+            password = #{password},
+            name = #{name},
+            createAt = #{createAt}
+        WHERE
+            id = 9998
+    </update>
 </mapper>

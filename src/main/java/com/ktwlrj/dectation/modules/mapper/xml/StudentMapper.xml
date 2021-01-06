@@ -13,4 +13,23 @@
     <select id="findAll" resultType="com.ktwlrj.dectation.modules.entity.Student">
         SELECT * FROM student
     </select>
+
+    <select id="getCount" resultType="BigInteger">
+        SELECT count(*) FROM student
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM student WHERE id = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE student
+        SET
+            name = #{name},
+            score = #{score},
+            age = #{age},
+            gender = #{gender}
+        WHERE
+            id = #{id}
+    </update>
 </mapper>

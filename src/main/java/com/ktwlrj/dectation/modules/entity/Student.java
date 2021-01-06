@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Getter
 @Setter
@@ -14,14 +15,18 @@ import java.io.Serializable;
 @Accessors
 public class Student implements Serializable {
 
-    @ApiModelProperty(name = "id", value = "配置id")
-    private Integer id;
+    @NonNull
+    private BigInteger id;
 
+    @NonNull
     private String name;
 
+    @NonNull
     private Integer score;
 
+    @NonNull
     private Integer age;
 
+    @NonNull
     private String gender;
 }

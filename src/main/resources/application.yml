@@ -62,7 +62,7 @@ logging:
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss
   file:
-    name: ./logs/${spring.application.name}.log
+    name: ./logs/application.log
     max-history: 30
 debug: true
 
