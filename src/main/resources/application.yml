@@ -46,25 +46,47 @@ spring:
     # 注意配置至少都是yyyy-MM-dd，不能只为yyyy-MM,否则只能使用Date类型加@JsonFormat处理
     date-format: yyyy-MM-dd HH:mm:ss
 
+
+# 服务配置
 server:
   port: ${app.server-port:8080}
+  tomcat:
+    max-swallow-size: -1
+  servlet:
+    context-path: ${app.context-path:/dev}
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+    threads:
+      io: 4
+      worker: 56
 
+
+# mybatis数据库配置
 mybatis:
   #实体类所在包
   type-aliases-package: com.ktwlrj.dectation.modules.entity
   #mapper.xml所在位置
   mapper-locations: classpath*:com/ktwlrj/dectation/modules/mapper/xml/*.xml
 
+
+# 日志配置
 logging:
   level:
     root: ${app.log-root-level:debug}
     com.ktwlrj: ${app.log-package-level:debug}
+    sun.rmi.transport.tcp: info
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss
+    # 生成日志文件路径(注释不会生成)
   file:
     name: ./logs/application.log
-    max-history: 30
 debug: true
+
 
 # swagger配置
 springfox:
@@ -75,7 +97,8 @@ springfox:
   protocols:
     - http
 
-# 配置
+
+# 自建配置
 storage:
   local:
     # 文件存储根目录:
@@ -87,7 +110,13 @@ storage:
     # 允许的文件类型:
     allow-types: jpg, png, gif
 
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+
+# 健康检查
+management:
+  endpoint:
+    heath:
+      show-details: ALWAYS
+    endpoints:
+      web:
+        exposure:
+          include: '*'

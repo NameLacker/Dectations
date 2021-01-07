@@ -11,7 +11,7 @@ import java.math.BigInteger;
 @Setter
 @ToString
 @AllArgsConstructor
-@Accessors
+@Accessors(chain = true)
 public class Developer implements Serializable {
 
     @NonNull

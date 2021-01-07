@@ -33,11 +33,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getById(int id) {
-        StorageConfiguration st = new StorageConfiguration();
-        if (st.getRootDir() == null) {
-            throw new ResponseException(Status.ERROR, "数据为空");
-        }
-        System.err.println(st.getRootDir());
         Student student = studentMapper.findByKey(id);
         if (Objects.isNull(student)) {
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "未查询到对应id的信息");

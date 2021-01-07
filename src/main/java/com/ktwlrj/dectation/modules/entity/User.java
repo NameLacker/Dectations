@@ -10,7 +10,7 @@ import java.math.BigInteger;
 @Getter
 @ToString
 @AllArgsConstructor
-@Accessors
+@Accessors(chain = true)
 public class User implements Serializable {
 
     @NonNull

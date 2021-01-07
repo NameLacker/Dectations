@@ -8,8 +8,9 @@ mysql:
 
 # 应用本地
 app:
-  server-port: 8080
-  context-path: /test
+  server-port: 8060
+  server-address: localhost
+  context-path: /dev
   log-root-level: debug
   log-package-level: debug
   swagger-enable: true # 是否打开swagger

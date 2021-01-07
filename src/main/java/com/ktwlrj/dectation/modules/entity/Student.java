@@ -12,7 +12,7 @@ import java.math.BigInteger;
 @Setter
 @AllArgsConstructor
 @ToString
-@Accessors
+@Accessors(chain = true)
 public class Student implements Serializable {
 
     @NonNull

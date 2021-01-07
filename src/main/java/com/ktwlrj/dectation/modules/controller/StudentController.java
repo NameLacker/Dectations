@@ -36,7 +36,6 @@ public class StudentController {
         return ok(service.getById(id));
     }
 
-
     @ApiOperation(value = "添加数据", notes = "添加student")
     @PostMapping(value = "/insert")
     public Result<String> insert(@RequestBody Student student) {
