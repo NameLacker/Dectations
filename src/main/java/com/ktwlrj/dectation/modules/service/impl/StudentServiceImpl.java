@@ -4,6 +4,7 @@ import com.ktwlrj.dectation.core.constant.Status;
 import com.ktwlrj.dectation.core.exception.ResponseException;
 import com.ktwlrj.dectation.modules.entity.Student;
 import com.ktwlrj.dectation.modules.mapper.StudentMapper;
+import com.ktwlrj.dectation.modules.model.StorageConfiguration;
 import com.ktwlrj.dectation.modules.service.StudentService;
 import com.ktwlrj.dectation.modules.service.dto.CountDto;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getById(int id) {
+        StorageConfiguration st = new StorageConfiguration();
+        if (st.getRootDir() == null) {
+            throw new ResponseException(Status.ERROR, "数据为空");
+        }
+        System.err.println(st.getRootDir());
         Student student = studentMapper.findByKey(id);
         if (Objects.isNull(student)) {
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "未查询到对应id的信息");

@@ -88,8 +88,11 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-freemarker
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '2.2.11.RELEASE'
 
-    // 从本地加载依赖库
-    compile fileTree(dir:'libs',include:['*.jar'])
+    // 本地加载库
+    compile fileTree(dir:'libs',includes:['*jar'])
+
+    // 微服务依赖
+    //compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client'
 }
 
 test {

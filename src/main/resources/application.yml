@@ -9,11 +9,11 @@ spring:
   #数据源配置
   datasource:
     #数据库的 JDBC URL
-    url: jdbc:mysql://${mysql.host}:${mysql.port}/${mysql.database}
+    url: jdbc:mysql://${mysql.host:localhost}:${mysql.port:3306}/${mysql.database:yogurt}
     #数据库的登录用户名
-    username: ${mysql.username}
+    username: ${mysql.username:root}
     #数据库的登录密码
-    password: ${mysql.password}
+    password: ${mysql.password:password}
     #JDBC 驱动的全限定类名。默认根据 URL 自动检测
     driver-class-name: com.mysql.cj.jdbc.Driver
     dbcp2:
@@ -47,7 +47,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
 
 server:
-  port: ${app.server-port}
+  port: ${app.server-port:8080}
 
 mybatis:
   #实体类所在包
@@ -57,8 +57,8 @@ mybatis:
 
 logging:
   level:
-    root: ${app.log-root-level}
-    com.ktwlrj: ${app.log-package-level}
+    root: ${app.log-root-level:debug}
+    com.ktwlrj: ${app.log-package-level:debug}
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss
   file:
@@ -69,8 +69,25 @@ debug: true
 # swagger配置
 springfox:
   documentation:
-    enabled: ${app.swagger-enable}
+    enabled: ${app.swagger-enable:true}
   scan-packages:
     - com.ktwlrj.dectation
   protocols:
     - http
+
+# 配置
+storage:
+  local:
+    # 文件存储根目录:
+    root-dir: ${STORAGE_LOCAL_ROOT:/var/storage}
+    # 最大文件大小，默认100K:
+    max-size: ${STORAGE_LOCAL_MAX_SIZE:102400}
+    # 是否允许空文件:
+    allow-empty: false
+    # 允许的文件类型:
+    allow-types: jpg, png, gif
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
