@@ -93,6 +93,9 @@ dependencies {
 
     // 微服务依赖
     //compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client'
+
+    // 数据校验
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
 }
 
 test {

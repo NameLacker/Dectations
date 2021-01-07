@@ -1,5 +1,6 @@
 package com.ktwlrj.dectation.modules.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -13,18 +14,18 @@ import java.math.BigInteger;
 @Accessors(chain = true)
 public class Person implements Serializable {
 
-    @NonNull
+    @ApiModelProperty(name = "id", notes = "索引id")
     private BigInteger id;
 
-    @NonNull
+    @ApiModelProperty(name = "name", value = "名字")
     private String name;
 
-    @NonNull
+    @ApiModelProperty(name = "gender", value = "性别")
     private String gender;
 
-    @NonNull
+    @ApiModelProperty(name = "tall", value = "身高")
     private Double tall;
 
-    @NonNull
+    @ApiModelProperty(name = "weights", value = "体重")
     private Double weights;
 }

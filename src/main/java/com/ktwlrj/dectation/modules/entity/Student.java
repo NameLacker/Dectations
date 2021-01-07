@@ -15,18 +15,18 @@ import java.math.BigInteger;
 @Accessors(chain = true)
 public class Student implements Serializable {
 
-    @NonNull
+    @ApiModelProperty(name = "id", notes = "学生id")
     private BigInteger id;
 
-    @NonNull
+    @ApiModelProperty(name = "name", notes = "学生名字")
     private String name;
 
-    @NonNull
+    @ApiModelProperty(name = "score", notes = "分数")
     private Integer score;
 
-    @NonNull
+    @ApiModelProperty(name = "age", notes = "年龄")
     private Integer age;
 
-    @NonNull
+    @ApiModelProperty(name = "gender", notes = "性别")
     private String gender;
 }

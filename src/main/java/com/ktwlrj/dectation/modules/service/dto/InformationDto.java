@@ -1,6 +1,7 @@
 package com.ktwlrj.dectation.modules.service.dto;
 
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -13,27 +14,27 @@ import java.math.BigInteger;
 @AllArgsConstructor
 public class InformationDto {
 
-    @NonNull
+    @ApiModelProperty(name = "id", value = "索引id")
     private int id;
 
-    @NonNull
+    @ApiModelProperty(name = "name", value = "名字")
     private String name;
 
-    @NonNull
+    @ApiModelProperty(name = "age", value = "年龄")
     private int age;
 
-    @NonNull
+    @ApiModelProperty(name = "gender", value = "性别")
     private String gender;
 
-    @NonNull
+    @ApiModelProperty(name = "score", value = "分数")
     private int score;
 
-    @NonNull
+    @ApiModelProperty(name = "email", value = "邮箱")
     private String email;
 
-    @NonNull
+    @ApiModelProperty(name = "password", value = "密码")
     private String password;
 
-    @NonNull
+    @ApiModelProperty(name = "createAt", value = "创建时间")
     private BigInteger createAt;
 }
