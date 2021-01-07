@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Getter
 @Setter
@@ -11,6 +12,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Accessors
 public class Person implements Serializable {
+
+    @NonNull
+    private BigInteger id;
 
     @NonNull
     private String name;

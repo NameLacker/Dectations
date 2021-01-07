@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ktwlrj.dectation.modules.mapper.PersonMapper">
+
+    <insert id="insertPerson">
+        INSERT IGNORE INTO person(id, name, gender, tall, weights) VALUES (#{id}, #{name}, #{gender}, #{tall}, #{weights})
+    </insert>
+
+    <select id="getPersonById" resultType="com.ktwlrj.dectation.modules.entity.Person">
+        SELECT * FROM person WHERE id = #{id}
+    </select>
+
+    <select id="getCount" resultType="BigInteger">
+        SELECT count(*) FROM person
+    </select>
+</mapper>

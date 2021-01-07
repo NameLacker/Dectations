@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
                 throw new ResponseException(Status.DATABASE_BASE_ERROR, "删除异常，可能是没有此id对应数据");
             }
         } catch (Exception e) {
-            log.error("-------------UserServiceImpl-----删除失败-----deleteById--->\n异常信息:{}", e.getMessage());
+            log.error("\n\n-------------UserServiceImpl-----删除失败-----deleteById--->\n异常信息:{}", e.getMessage());
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
                 throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库更新失败，可能是没有此id对应数据");
             }
         } catch (Exception e) {
-            log.error("-------------UserServiceImpl-----更新失败-----update--->\n异常信息:{}", e.getMessage());
+            log.error("\n\n-------------UserServiceImpl-----更新失败-----update--->\n异常信息:{}", e.getMessage());
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }

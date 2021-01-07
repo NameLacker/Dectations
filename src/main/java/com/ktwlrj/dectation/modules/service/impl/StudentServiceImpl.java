@@ -66,7 +66,7 @@ public class StudentServiceImpl implements StudentService {
                 throw new ResponseException(Status.DATABASE_BASE_ERROR, "没有删除数据，可能是没有此id对应数据");
             }
         } catch (Exception e) {
-            log.error("-------------StudentServiceImpl-----删除失败-----deleteById--->\n异常信息:{}", e.getMessage());
+            log.error("\n\n-------------StudentServiceImpl-----删除失败-----deleteById--->\n异常信息:{}", e.getMessage());
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }
@@ -79,7 +79,7 @@ public class StudentServiceImpl implements StudentService {
                 throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据更新失败，可能是没有此id对应数据");
             }
         } catch (Exception e) {
-            log.error("-------------StudentServiceImpl-----更新失败-----update--->\n异常信息:{}", e.getMessage());
+            log.error("\n\n-------------StudentServiceImpl-----更新失败-----update--->\n异常信息:{}", e.getMessage());
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }

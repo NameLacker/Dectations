@@ -29,7 +29,7 @@ public class ConfigServiceImpl implements ConfigService {
             }
             return information;
         } catch (Exception e) {
-            log.error("-------------ConfigServiceImpl-----查询失败-----getInformationById--->\n异常信息:{}", e.getMessage());
+            log.error("\n\n-------------ConfigServiceImpl-----查询失败-----getInformationById--->\n异常信息:{}", e.getMessage());
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }
@@ -43,7 +43,7 @@ public class ConfigServiceImpl implements ConfigService {
             }
             return informations;
         } catch (Exception e) {
-            log.error("-------------ConfigServiceImpl-----查询失败-----getInformationById--->\n异常信息:{}", e.getMessage());
+            log.error("\n\n-------------ConfigServiceImpl-----查询失败-----getInformationById--->\n异常信息:{}", e.getMessage());
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }

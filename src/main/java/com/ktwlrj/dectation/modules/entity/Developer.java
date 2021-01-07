@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 
 
 @Getter
@@ -14,7 +15,7 @@ import java.io.Serializable;
 public class Developer implements Serializable {
 
     @NonNull
-    private int id = 1;
+    private BigInteger id;
 
     @NonNull
     private String name;
