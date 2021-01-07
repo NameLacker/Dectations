@@ -1,4 +1,4 @@
-package com.ktwlrj.dectation.modules.entity;
+package com.ktwlrj.dectation.modules.service.dto;
 
 
 import lombok.*;

@@ -1,6 +1,6 @@
 package com.ktwlrj.dectation.modules.service;
 
-import com.ktwlrj.dectation.modules.entity.InformationDto;
+import com.ktwlrj.dectation.modules.service.dto.InformationDto;
 
 import java.util.List;
 

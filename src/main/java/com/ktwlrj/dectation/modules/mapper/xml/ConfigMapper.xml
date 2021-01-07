@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ktwlrj.dectation.modules.mapper.ConfigMapper">
-    <select id="getInformationById" resultType="com.ktwlrj.dectation.modules.entity.InformationDto">
+    <select id="getInformationById" resultType="com.ktwlrj.dectation.modules.service.dto.InformationDto">
         SELECT
             s.id,
             s.name,
@@ -20,7 +20,7 @@
               s.id = u.id
     </select>
 
-    <select id="getAllInformation" resultType="com.ktwlrj.dectation.modules.entity.InformationDto">
+    <select id="getAllInformation" resultType="com.ktwlrj.dectation.modules.service.dto.InformationDto">
         SELECT
             s.id,
             s.name,

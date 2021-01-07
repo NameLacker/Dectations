@@ -2,7 +2,7 @@ package com.ktwlrj.dectation.modules.controller;
 
 import com.ktwlrj.dectation.core.base.Result;
 import com.ktwlrj.dectation.modules.service.ConfigService;
-import com.ktwlrj.dectation.modules.entity.InformationDto;
+import com.ktwlrj.dectation.modules.service.dto.InformationDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

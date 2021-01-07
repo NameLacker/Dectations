@@ -4,7 +4,7 @@ import com.ktwlrj.dectation.core.constant.Status;
 import com.ktwlrj.dectation.core.exception.ResponseException;
 import com.ktwlrj.dectation.modules.mapper.ConfigMapper;
 import com.ktwlrj.dectation.modules.service.ConfigService;
-import com.ktwlrj.dectation.modules.entity.InformationDto;
+import com.ktwlrj.dectation.modules.service.dto.InformationDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
