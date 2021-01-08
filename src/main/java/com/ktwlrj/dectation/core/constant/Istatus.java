@@ -7,7 +7,7 @@ package com.ktwlrj.dectation.core.constant;
  * @date 2020-06-22 16:40
  * @since JDK1.8
  */
-interface IStatus {
+interface Istatus {
 
     /**
      * 状态码

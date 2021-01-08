@@ -1,5 +1,6 @@
 package com.ktwlrj.dectation.modules.controller;
 
+import com.ktwlrj.dectation.core.base.BaseController;
 import com.ktwlrj.dectation.core.base.Result;
 import com.ktwlrj.dectation.modules.entity.Person;
 import com.ktwlrj.dectation.modules.service.PersonService;
@@ -10,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import static com.ktwlrj.dectation.core.base.BaseController.ok;
 
 @Api(tags = "个人")
 @Slf4j
@@ -18,7 +18,7 @@ import static com.ktwlrj.dectation.core.base.BaseController.ok;
 @RestController
 @RequestMapping(value = "/person")
 @Validated
-public class PersonController {
+public class PersonController extends BaseController {
 
     private final PersonService service;
 

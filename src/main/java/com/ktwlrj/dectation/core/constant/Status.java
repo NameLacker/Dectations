@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
  */
 @Getter
 @ToString
-public enum Status implements IStatus {
+public enum Status implements Istatus {
     //------------------------成功----------------
     /**
      * 操作成功！

@@ -1,5 +1,6 @@
 package com.ktwlrj.dectation.modules.controller;
 
+import com.ktwlrj.dectation.core.base.BaseController;
 import com.ktwlrj.dectation.core.base.Result;
 import com.ktwlrj.dectation.modules.entity.Student;
 import com.ktwlrj.dectation.modules.service.StudentService;
@@ -11,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import static com.ktwlrj.dectation.core.base.BaseController.ok;
 
 @Api(tags = "学生")
 @Slf4j
@@ -19,7 +19,7 @@ import static com.ktwlrj.dectation.core.base.BaseController.ok;
 @RestController
 @RequestMapping("/student")
 @Validated
-public class StudentController {
+public class StudentController extends BaseController {
 
     private final StudentService service;
 

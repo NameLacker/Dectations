@@ -1,5 +1,6 @@
 package com.ktwlrj.dectation.modules.controller;
 
+import com.ktwlrj.dectation.core.base.BaseController;
 import com.ktwlrj.dectation.core.base.Result;
 import com.ktwlrj.dectation.modules.service.ConfigService;
 import com.ktwlrj.dectation.modules.service.dto.InformationDto;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.ktwlrj.dectation.core.base.BaseController.ok;
 
 @Api(tags = "日志")
 @Slf4j
@@ -23,7 +23,7 @@ import static com.ktwlrj.dectation.core.base.BaseController.ok;
 @RestController
 @RequestMapping(value = "/config")
 @Validated
-public class ConfigController {
+public class ConfigController extends BaseController {
 
     private final ConfigService service;
 

@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.math.BigInteger;
 
@@ -17,6 +18,7 @@ public class Person implements Serializable {
     @ApiModelProperty(name = "id", notes = "索引id")
     private BigInteger id;
 
+    @NotBlank
     @ApiModelProperty(name = "name", value = "名字")
     private String name;
 

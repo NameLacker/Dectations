@@ -1,5 +1,6 @@
 package com.ktwlrj.dectation.modules.controller;
 
+import com.ktwlrj.dectation.core.base.BaseController;
 import com.ktwlrj.dectation.core.base.Result;
 import com.ktwlrj.dectation.modules.entity.User;
 import com.ktwlrj.dectation.modules.service.UserService;
@@ -11,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import static com.ktwlrj.dectation.core.base.BaseController.ok;
 
 @Slf4j
 @Validated
@@ -19,7 +19,7 @@ import static com.ktwlrj.dectation.core.base.BaseController.ok;
 @RestController
 @Api(tags = "用户")
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 
     private final UserService service;
 

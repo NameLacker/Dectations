@@ -50,6 +50,18 @@ public class CoreCommonUtils {
                 + "\tApi-Url:\t\t\thttp://" + ip + ":" + port + path + "\n"
                 + "\tSwagger-Ui:\t\t\thttp://" + ip + ":" + port + path + "/swagger-ui/index.html\n"
                 + "------------------------------------------------------------------------------");
+
+        String[] definitionNames = application.getBeanDefinitionNames();
+        /** TODO
+         * **思考**： SpringBoot的`run`方法会调用`prepareContext`会加载一些`bean`，
+         * 同时，在调用`AbstractApplicationContext`的`refresh`方法时也会加载一些`bean`，这些加载的`bean`有什么不同？
+         */
+        // TODO 只有在这一步才会打印剩下的bean，不是在prepareEnvironment加载的bean？？？
+        System.out.println("=======================下面开始打印容器中所有的bean name=============================");
+        for (String name : definitionNames) {
+            System.out.println(name);
+        }
+        System.out.println("=======================打印容器中所有的bean name结束=============================");
     }
 
 
