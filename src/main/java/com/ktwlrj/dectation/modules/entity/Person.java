@@ -12,6 +12,7 @@ import java.math.BigInteger;
 @Setter
 @ToString
 @AllArgsConstructor
+@EqualsAndHashCode
 @Accessors(chain = true)
 public class Person implements Serializable {
 

@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @AllArgsConstructor
 @ToString
 @Accessors(chain = true)

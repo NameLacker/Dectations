@@ -100,15 +100,7 @@ springfox:
 
 # 自建配置
 storage:
-  local:
-    # 文件存储根目录:
-    root-dir: ${STORAGE_LOCAL_ROOT:/var/storage}
-    # 最大文件大小，默认100K:
-    max-size: ${STORAGE_LOCAL_MAX_SIZE:102400}
-    # 是否允许空文件:
-    allow-empty: false
-    # 允许的文件类型:
-    allow-types: jpg, png, gif
+  is-print-bean: true
 
 
 # 健康检查

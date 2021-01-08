@@ -4,7 +4,6 @@ import com.ktwlrj.dectation.core.constant.Status;
 import com.ktwlrj.dectation.core.exception.ResponseException;
 import com.ktwlrj.dectation.modules.entity.Student;
 import com.ktwlrj.dectation.modules.mapper.StudentMapper;
-import com.ktwlrj.dectation.modules.model.StorageConfiguration;
 import com.ktwlrj.dectation.modules.service.StudentService;
 import com.ktwlrj.dectation.modules.service.dto.CountDto;
 import lombok.RequiredArgsConstructor;
