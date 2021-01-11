@@ -1,11 +1,13 @@
 package com.ktwlrj.dectation.modules.service.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -36,5 +38,6 @@ public class InformationDto {
     private String password;
 
     @ApiModelProperty(name = "createAt", value = "创建时间")
-    private BigInteger createAt;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private LocalDateTime createAt;
 }

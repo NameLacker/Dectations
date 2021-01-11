@@ -1,5 +1,6 @@
 package com.ktwlrj.dectation.modules.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -7,6 +8,7 @@ import lombok.experimental.Accessors;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -32,5 +34,6 @@ public class User implements Serializable {
     private String name;
 
     @ApiModelProperty(name = "createAt", value = "创建时间")
-    private long createAt;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private LocalDateTime createAt;
 }
