@@ -30,6 +30,6 @@
             name = #{name},
             createAt = #{createAt}
         WHERE
-            id = 9998
+            id = #{id}
     </update>
 </mapper>
