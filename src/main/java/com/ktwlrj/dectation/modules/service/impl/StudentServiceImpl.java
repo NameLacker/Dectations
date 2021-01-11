@@ -9,6 +9,7 @@ import com.ktwlrj.dectation.modules.service.dto.CountDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -23,14 +24,16 @@ public class StudentServiceImpl implements StudentService {
     private final StudentMapper studentMapper;
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void add(Student student) {
-        BigInteger number = studentMapper.getCount();
-        number = number.add(BigInteger.valueOf(1));
+        int number = studentMapper.getCount().intValue();
+        number = number + 1;
         student.setId(number);
         studentMapper.save(student);
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public Student getById(int id) {
         Student student = studentMapper.findByKey(id);
         if (Objects.isNull(student)) {
@@ -40,6 +43,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public CountDto<Student> getAll() {
         BigInteger number = studentMapper.getCount();
         if (Objects.isNull(number)) {
@@ -53,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void deleteById(int id) {
         try {
             boolean b = studentMapper.deleteById(id);
@@ -66,6 +71,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void update(Student student) {
         try {
             boolean b = studentMapper.update(student);

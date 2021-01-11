@@ -24,7 +24,7 @@ public class UserController extends BaseController {
     private final UserService service;
 
     @ApiOperation(value = "保存用户信息", notes = "user")
-    @PostMapping("/save")
+    @PostMapping("/insert")
     public Result<String> saveUser(@RequestBody User user) {
         service.saveUser(user);
         return ok("添加成功");

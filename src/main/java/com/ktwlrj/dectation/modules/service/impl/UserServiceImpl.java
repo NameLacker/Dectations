@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -25,14 +26,16 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void saveUser(User user) throws RuntimeException {
-        BigInteger number = userMapper.getCount();
-        number = number.add(BigInteger.valueOf(1));
+        int number = userMapper.getCount().intValue();
+        number = number + 1;
         user.setId(number);
         userMapper.save(user);
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public User getUser(String name) throws RuntimeException {
         if (StringUtils.isBlank(name)) {
             throw new ResponseException(Status.ERROR, "名字不能为空");
@@ -45,6 +48,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public CountDto<User> getAllUser() throws RuntimeException {
         BigInteger number = userMapper.getCount();
         if (Objects.isNull(number)) {
@@ -58,6 +62,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void deleteById(int id) {
         try {
             boolean b = userMapper.deleteById(id);
@@ -71,6 +76,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void update(User user) {
         try {
             boolean b = userMapper.update(user);

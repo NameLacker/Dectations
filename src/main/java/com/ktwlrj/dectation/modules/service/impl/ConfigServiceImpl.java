@@ -8,6 +8,7 @@ import com.ktwlrj.dectation.modules.service.dto.InformationDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +22,7 @@ public class ConfigServiceImpl implements ConfigService {
     private final ConfigMapper configMapper;
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public InformationDto getInformationById(int id) {
         try {
             InformationDto information = configMapper.getInformationById(id);
@@ -35,6 +37,7 @@ public class ConfigServiceImpl implements ConfigService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public List<InformationDto> getAllInformation() {
         try {
             List<InformationDto> informations = configMapper.getAllInformation();

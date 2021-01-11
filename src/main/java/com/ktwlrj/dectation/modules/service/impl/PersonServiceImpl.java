@@ -8,6 +8,7 @@ import com.ktwlrj.dectation.modules.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.Objects;
@@ -21,9 +22,10 @@ public class PersonServiceImpl implements PersonService {
     private final PersonMapper personMapper;
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void insert(Person person) {
         try {
-            BigInteger number = personMapper.getCount();
+            int number = personMapper.getCount().intValue();
             person.setId(number);
             boolean b = personMapper.insertPerson(person);
             if (!b) {
@@ -36,6 +38,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public Person getPersonById(int id) {
         try {
             Person person = personMapper.getPersonById(id);

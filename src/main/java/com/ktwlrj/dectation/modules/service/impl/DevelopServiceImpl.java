@@ -8,6 +8,7 @@ import com.ktwlrj.dectation.modules.service.DevelopService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.Objects;
@@ -21,6 +22,7 @@ public class DevelopServiceImpl implements DevelopService {
     private final DevelopMapper developMapper;
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public Developer getDeveloperById(int id) {
         try {
             Developer developer = developMapper.getDevelopById(id);
@@ -35,9 +37,10 @@ public class DevelopServiceImpl implements DevelopService {
     }
 
     @Override
+    @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
     public void insertDeveloper(Developer developer) {
         try {
-            BigInteger number = developMapper.getCount();
+            int number = developMapper.getCount().intValue();
             developer.setId(number);
             boolean b = developMapper.insertDeveloper(developer);
             if (!b) {

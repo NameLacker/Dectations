@@ -17,7 +17,7 @@ import java.math.BigInteger;
 public class Person implements Serializable {
 
     @ApiModelProperty(name = "id", notes = "索引id")
-    private BigInteger id;
+    private int id;
 
     @NotBlank
     @ApiModelProperty(name = "name", value = "名字")
