@@ -7,10 +7,10 @@ import com.ktwlrj.dectation.modules.mapper.DevelopMapper;
 import com.ktwlrj.dectation.modules.service.DevelopService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigInteger;
 import java.util.Objects;
 
 
@@ -23,6 +23,7 @@ public class DevelopServiceImpl implements DevelopService {
 
     @Override
     @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚
+    @Cacheable(cacheNames="employee")  // 使用Redis缓存
     public Developer getDeveloperById(int id) {
         try {
             Developer developer = developMapper.getDevelopById(id);
@@ -35,6 +36,7 @@ public class DevelopServiceImpl implements DevelopService {
             throw new ResponseException(Status.DATABASE_BASE_ERROR, "数据库操作异常，可能是没有此id对应数据");
         }
     }
+
 
     @Override
     @Transactional(rollbackFor = {Exception.class, Error.class})  // 事物回滚

@@ -1,12 +1,13 @@
 package com.ktwlrj.dectation.modules.mapper;
 
 import com.ktwlrj.dectation.modules.entity.Student;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
 import java.util.List;
 
-@Repository
+
 public interface StudentMapper {
     void save(Student student);
 

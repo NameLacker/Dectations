@@ -51,7 +51,7 @@ public class StudentController extends BaseController {
     }
 
     @ApiOperation(value = "更新数据", notes = "数据信息")
-    @PostMapping(value = "/update")
+    @PutMapping(value = "/update")
     public Result<String> update(@RequestBody Student student) {
         service.update(student);
         return ok("更新成功");

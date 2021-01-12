@@ -96,6 +96,11 @@ dependencies {
 
     // 数据校验
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+
+    // Redis缓存
+    // compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
+
+
 }
 
 test {
